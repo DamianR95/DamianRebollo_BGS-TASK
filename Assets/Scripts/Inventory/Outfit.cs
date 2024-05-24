@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Outfit : MonoBehaviour
+{
+    [SerializeField]
+    private OutfitSlot[] _outfitSlots;
+
+
+
+
+    public Equipable EpuipOutfit(Equipable item) {
+
+        var Slot = GetOutfilSlot(item.GetEquippablePart);
+        if (Slot == null)
+            return null;
+
+        var oldItem = Slot.EquipItem(item);
+
+        return oldItem;
+    }
+
+    private OutfitSlot GetOutfilSlot(OutfitParts index) {
+        if (index >= OutfitParts.COUNT) {
+            Debug.LogError("OutfitPart asked is not existent.");
+            return null;
+        }
+        return _outfitSlots[(int)index];
+    }
+
+    public enum OutfitParts
+    {
+        HEAD = 0,
+        TORSO = 1,
+        PELVIS = 2,
+        SHOULDER_L = 3,
+        ELBOW_L = 4,
+        WRIST_L = 5,
+        SHOULDER_R = 6,
+        ELBOW_R = 7,
+        WRIST_R = 8,
+        LEG_L = 9,
+        BOOT_L = 10,
+        LEG_R = 11,
+        BOOT_R = 12,
+        COUNT = 13
+    }
+
+}
+
