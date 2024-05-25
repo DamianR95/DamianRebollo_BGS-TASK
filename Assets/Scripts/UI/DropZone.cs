@@ -22,6 +22,8 @@ namespace BGS.ProgrammerTask.UI
 
         private List<Func<bool>> conditionsToRemove;
 
+        public bool IsFull => hasLimitChild ? myDraggables.Count >=  maxChilds : false;
+
         private void Awake()
         {
             myDraggables = GetComponentsInChildren<Draggable>().ToList();

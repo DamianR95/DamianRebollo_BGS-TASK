@@ -14,7 +14,20 @@ namespace BGS.ProgrammerTask.UI
             {
                 if (_myZone.myDraggables.Contains(d))
                 {
-                    inventory.GetEquipSlots[(int)equipable.GetEquipable.GetEquippablePart].AddDraggable(d);
+                    Outfit.OutfitParts part = equipable.GetEquipable.GetEquipablePart;
+                    if (part == Outfit.OutfitParts.HAND_L || part == Outfit.OutfitParts.HAND_R) {
+
+                        if (inventory.GetEquipSlot(part).IsFull) {
+                            part = Outfit.OutfitParts.HAND_R;
+                        }
+                        if (inventory.GetEquipSlot(part).IsFull)
+                        {
+                            part = Outfit.OutfitParts.HAND_L;
+                        }
+                    }
+
+
+                    inventory.GetEquipSlot(part).AddDraggable(d);
                 }
                 else {
                     for (int i = 0; i < inventory.GetEquipSlots.Length; i++) {

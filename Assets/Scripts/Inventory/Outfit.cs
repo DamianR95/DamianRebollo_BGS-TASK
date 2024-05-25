@@ -14,7 +14,7 @@ namespace BGS.ProgrammerTask.Inventory
         public void EquipOutfit(Equipable item)
         {
 
-            var Slot = GetOutfitSlot(item.GetEquippablePart);
+            var Slot = GetOutfitSlot(item.GetEquipablePart);
             if (Slot == null)
                 return;
 
@@ -47,7 +47,9 @@ namespace BGS.ProgrammerTask.Inventory
             BOOT_L = 10,
             LEG_R = 11,
             BOOT_R = 12,
-            COUNT = 13
+            HAND_L = 13,
+            HAND_R = 14,
+            COUNT = 15
         }
 
     }

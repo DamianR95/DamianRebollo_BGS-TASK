@@ -18,6 +18,14 @@ namespace BGS.ProgrammerTask.Inventory
 
         public Outfit GetOutfit {  get { return _playerOutfit; } }
         public DropZone[] GetEquipSlots {  get { return _equipSlots; } }
+
+        public DropZone GetEquipSlot(Outfit.OutfitParts o)
+        {
+            return _equipSlots[(int)o];
+        } 
+    
+    
+
         private void Awake()
         {
             if (_playerOutfit == null)
@@ -29,10 +37,15 @@ namespace BGS.ProgrammerTask.Inventory
         void Setup(Outfit outfit)
         {
             var slots = outfit.GetOutfitSlots;
-
+            string part = string.Empty;
             for (int i = 0; i < _equipSlots.Length; i++)
             {
-                _equipSlots[i].draggableTag = ((Outfit.OutfitParts)i).ToString();
+                part = ((Outfit.OutfitParts)i).ToString();
+
+                if (i >= (int)Outfit.OutfitParts.HAND_L)
+                    part = "HAND";
+
+                _equipSlots[i].draggableTag = part;
                 _equipSlots[i].OnReceiveDraggable += slots[i].EquipItem;
                 _equipSlots[i].OnRemoveDraggable += slots[i].UnequipItem;
 

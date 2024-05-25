@@ -19,16 +19,15 @@ namespace BGS.ProgrammerTask.Inventory
 
         public string GetName { get { return _name; } }
         public string GetDescription { get { return _desc; } }
-
+        public Sprite GetSprite { get { return _spr; } }
         public int GetValue { get { return _value; } }
 
-        public virtual void Setup(string name, Sprite sprite)
+        public void Setup(string name, Sprite sprite)
         {
             _name = name;
             _spr = sprite;
         }
 
-        public Sprite MySprite { get { return _spr; } }
 
         public virtual void Use()
         {

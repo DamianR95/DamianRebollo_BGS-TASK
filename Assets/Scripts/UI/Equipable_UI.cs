@@ -10,7 +10,9 @@ namespace BGS.ProgrammerTask.UI
         public override void Setup(DropZone originDropZone, Item i)
         {
             base.Setup(originDropZone, i);
-            draggableTag = GetEquipable.GetEquippablePart.ToString();
+
+            draggableTag = GetEquipable.GetEquipablePart >= Outfit.OutfitParts.HAND_L ?
+                "HAND": GetEquipable.GetEquipablePart.ToString();
         }
     }
 }
