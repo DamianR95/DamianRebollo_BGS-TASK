@@ -18,8 +18,9 @@ namespace BGS.ProgrammerTask.Inventory
 
         [SerializeField]
         private Equipable[] _startingItem;
+        public DropZone GetDropZone {  get { return _zone; } }
 
-        private void Awake()
+        protected virtual void Awake()
         {
 
             for (int i = 0; i < _startingItem.Length; i++)

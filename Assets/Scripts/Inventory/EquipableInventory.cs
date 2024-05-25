@@ -16,6 +16,8 @@ namespace BGS.ProgrammerTask.Inventory
 
         public GameObject Equipable_UIPrefab;
 
+        public Outfit GetOutfit {  get { return _playerOutfit; } }
+        public DropZone[] GetEquipSlots {  get { return _equipSlots; } }
         private void Awake()
         {
             if (_playerOutfit == null)
@@ -26,7 +28,7 @@ namespace BGS.ProgrammerTask.Inventory
 
         void Setup(Outfit outfit)
         {
-            var slots = outfit.GetOutfitSlots();
+            var slots = outfit.GetOutfitSlots;
 
             for (int i = 0; i < _equipSlots.Length; i++)
             {

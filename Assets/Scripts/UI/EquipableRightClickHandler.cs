@@ -1,0 +1,30 @@
+﻿using BGS.ProgrammerTask.Inventory;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+namespace BGS.ProgrammerTask.UI
+{
+    public class EquipableRightClickHandler : RightClickHandler
+    {
+        [SerializeField]
+         private EquipableInventory inventory;
+        protected override void Apply(Draggable d)
+        {
+            if (d != null  && d is Equipable_UI equipable)
+            {
+                if (_myZone.myDraggables.Contains(d))
+                {
+                    inventory.GetEquipSlots[(int)equipable.GetEquipable.GetEquippablePart].AddDraggable(d);
+                }
+                else {
+                    for (int i = 0; i < inventory.GetEquipSlots.Length; i++) {
+                        if (inventory.GetEquipSlots[i].myDraggables.Contains(d)) {
+                            _myZone.AddDraggable(d);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
