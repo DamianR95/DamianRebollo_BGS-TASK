@@ -10,12 +10,16 @@ namespace BGS.ProgrammerTask.Inventory
         [SerializeField]
         private string _name = "Item";
         [SerializeField]
+        private string _desc = "This is an item.";
+        [SerializeField]
         private Sprite _spr;
         [SerializeField]
         private int _value = 1;
 
 
         public string GetName { get { return _name; } }
+        public string GetDescription { get { return _desc; } }
+
         public int GetValue { get { return _value; } }
 
         public virtual void Setup(string name, Sprite sprite)

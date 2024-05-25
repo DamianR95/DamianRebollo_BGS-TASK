@@ -15,20 +15,36 @@ namespace BGS.ProgrammerTask.Inventory
 
             GetDropZone.OnRemoveDraggable += OnRemoveDraggable;
             GetDropZone.OnReceiveDraggable += OnReceiveDraggable;
+            GetDropZone.OnAttemptToRemoveDraggable += OnAttemptToRemoveDraggable;
+            GetDropZone.AddConditionForRemove(hasEnoughGold);
 
         }
 
+        private void OnAttemptToRemoveDraggable(Draggable draggable)
+        {
+            if (draggable is Equipable_UI equipable) {
+                HoldingItemValue = equipable.GetItem.GetValue;
+            }
+        }
+
+        Func<bool> condition1 = () => true;
+        int requiredGold = 30;
+        Func<bool> hasEnoughGold = () => GoldCounter.Instance.GetGold >= HoldingItemValue;
         private void OnReceiveDraggable(Draggable d)
         {
             if (d is Item_UI)
             {
-                int sellValue = Mathf.RoundToInt((float)(((Item_UI)d).GetItem.GetValue) * sellValueMultiplier);
-                GoldCounter._AddGold(sellValue);
+                //int sellValue = Mathf.RoundToInt((float)(((Item_UI)d).GetItem.GetValue) * sellValueMultiplier);
+                int buyValue = ((Item_UI)d).GetItem.GetValue;
+
+                GoldCounter._AddGold(buyValue);
             }
 
 
         }
 
+        static int HoldingItemValue; 
+         
         private void OnRemoveDraggable(Draggable d)
         {
             if (d is Item_UI)
