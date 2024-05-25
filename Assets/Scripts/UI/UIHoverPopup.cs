@@ -21,14 +21,19 @@ namespace BGS.ProgrammerTask.UI
         }
         private void Start()
         {
-            popup.gameObject.SetActive(false);
+            ClosePopUp();
         }
+        public void OpenPopUp() { 
+            popup.gameObject.SetActive(true);
+        }
+        public void ClosePopUp()
+        {
+            popup.gameObject.SetActive(false);
 
-      
+        }
 
         public void UpdatePopupContent(string name, string desc, string value)
         {
-            // Actualizar el contenido del popup con la información del ítem
             nameText.text = name;
             descriptionText.text = desc;
             valueText.text = "Value: " + value.ToString();
@@ -36,7 +41,6 @@ namespace BGS.ProgrammerTask.UI
 
         public void UpdatePopupPosition(PointerEventData eventData)
         {
-            // Posicionar el popup al lado del cursor
             Vector2 position;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 transform as RectTransform,
