@@ -10,28 +10,22 @@ namespace BGS.ProgrammerTask.UI
         [SerializeField]
         private TMPro.TextMeshProUGUI UITextMeshPro;
 
-        [SerializeField]
-        private GoldCounter GoldCounter;
 
-        void Awake()
+        void Start()
         {
-            if (GoldCounter == null)
-            {
-                Debug.LogError("No Gold Counter Assigned.",gameObject);
-            }
-            GoldCounter.OnGoldAdded += RefreshGold;
-            GoldCounter.OnGoldRemoved += RefreshGold;
+            GoldCounter.Instance.OnGoldAdded += RefreshGold;
+            GoldCounter.Instance.OnGoldRemoved += RefreshGold;
 
         }
 
         private void RefreshGold(int obj)
         {
-            UITextMeshPro.text = string.Format("GOLD: {0}", GoldCounter.GetGold);
+            UITextMeshPro.text = string.Format("GOLD: {0}", GoldCounter.Instance.GetGold);
         }
         private void OnDestroy()
         {
-            GoldCounter.OnGoldAdded -= RefreshGold;
-            GoldCounter.OnGoldRemoved -= RefreshGold;
+            GoldCounter.Instance.OnGoldAdded -= RefreshGold;
+            GoldCounter.Instance.OnGoldRemoved -= RefreshGold;
         }
      
     }

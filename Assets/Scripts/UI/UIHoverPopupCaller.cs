@@ -14,7 +14,7 @@ namespace BGS.ProgrammerTask.UI
        private Item_UI hoverItem;
         public void OnPointerEnter(PointerEventData eventData)
         {
-            UIHoverPopup.Instance.popup.gameObject.SetActive(true);
+            UIHoverPopup.Instance.OpenPopUp();
             UIHoverPopup.Instance.UpdatePopupContent(hoverItem.GetItem.GetName, 
                 hoverItem.GetItem.GetDescription, hoverItem.GetItem.GetValue.ToString());
             UIHoverPopup.Instance.UpdatePopupPosition(eventData);
@@ -22,7 +22,7 @@ namespace BGS.ProgrammerTask.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            UIHoverPopup.Instance.popup.gameObject.SetActive(false);
+            UIHoverPopup.Instance.ClosePopUp();
         }
 
         public void OnPointerMove(PointerEventData eventData)
