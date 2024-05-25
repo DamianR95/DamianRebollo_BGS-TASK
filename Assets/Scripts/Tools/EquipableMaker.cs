@@ -15,6 +15,7 @@ namespace BGS.ProgrammerTask.Tools
         [SerializeField]
         public List<Sprite> spritesEquiped = new List<Sprite>();
         public Outfit.OutfitParts partToSet;
+#if UNITY_EDITOR
 
         [ProButton]
         public void CreateMyAssets()
@@ -40,5 +41,7 @@ namespace BGS.ProgrammerTask.Tools
             sprites.Clear();
             spritesEquiped.Clear();
         }
+#endif
+
     }
 }

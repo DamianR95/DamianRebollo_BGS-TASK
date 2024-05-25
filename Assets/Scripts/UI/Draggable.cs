@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
-using static UnityEditor.Progress;
-using UnityEditor.Experimental.GraphView;
 using BGS.ProgrammerTask.Utilities;
 namespace BGS.ProgrammerTask.UI
 {
