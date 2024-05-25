@@ -3,28 +3,32 @@ using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
 using com.cyborgAssets.inspectorButtonPro;
-[CreateAssetMenu(fileName = "EquipableMaker", menuName = "ScriptableObjects/EquipableMaker", order = 1)]
-
-public class EquipableMaker : ScriptableObject
+using BGS.ProgrammerTask.Inventory;
+namespace BGS.ProgrammerTask.Tools
 {
-    [SerializeField]
-    public List<Sprite> sprites = new List<Sprite>();
-    public Outfit.OutfitParts partToSet;
+    [CreateAssetMenu(fileName = "EquipableMaker", menuName = "ScriptableObjects/EquipableMaker", order = 1)]
 
-    [ProButton]
-    public void CreateMyAssets()
+    public class EquipableMaker : ScriptableObject
     {
-        foreach (Sprite spr in sprites)
+        [SerializeField]
+        public List<Sprite> sprites = new List<Sprite>();
+        public Outfit.OutfitParts partToSet;
+
+        [ProButton]
+        public void CreateMyAssets()
         {
-            Equipable asset = ScriptableObject.CreateInstance<Equipable>();
-            asset.Setup(spr.name, spr);
-            asset.SetEquippablePart = partToSet;
+            foreach (Sprite spr in sprites)
+            {
+                Equipable asset = ScriptableObject.CreateInstance<Equipable>();
+                asset.Setup(spr.name, spr);
+                asset.SetEquippablePart = partToSet;
 
-            AssetDatabase.CreateAsset(asset, string.Format("Assets/ScriptableObjects/Equipables/{0}.asset", spr.name));
+                AssetDatabase.CreateAsset(asset, string.Format("Assets/ScriptableObjects/Equipables/{0}.asset", spr.name));
+            }
+            AssetDatabase.SaveAssets();
+
+            EditorUtility.FocusProjectWindow();
+            sprites.Clear();
         }
-        AssetDatabase.SaveAssets();
-
-        EditorUtility.FocusProjectWindow();
-        sprites.Clear();
     }
 }
