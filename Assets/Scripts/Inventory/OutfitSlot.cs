@@ -47,7 +47,7 @@ namespace BGS.ProgrammerTask.Inventory
             if (_equippedItem != null)
             {
 
-                _sprRenderer.sprite = _equippedItem.MySprite;
+                _sprRenderer.sprite = _equippedItem.GetEquipedSprite;
             }
             else
             {

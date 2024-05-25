@@ -12,7 +12,7 @@ namespace BGS.ProgrammerTask.UI
         {
             _item = i;
             gameObject.name = _item.GetName + "_UI";
-            myImage.sprite = i.MySprite;
+            myImage.sprite = i.GetSprite;
             originDropZone.AddDraggable(this);
 
         }
