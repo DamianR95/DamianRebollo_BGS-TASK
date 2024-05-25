@@ -17,7 +17,6 @@ namespace BGS.ProgrammerTask.UI
         private GameObject placeHolder = null;
         public string draggableTag = "";
 
-        public DropZone originalDropZone;
         private LayoutElement mylayoutElement;
         private CanvasGroup myCanvasGroup;
         public DropZone CurrentDropZone;
@@ -43,6 +42,10 @@ namespace BGS.ProgrammerTask.UI
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                return; 
+            }
             placeHolder = new GameObject();
             placeHolder.transform.SetParent(this.transform.parent);
             LayoutElement le = placeHolder.AddComponent<LayoutElement>();
@@ -64,6 +67,10 @@ namespace BGS.ProgrammerTask.UI
         int newSiblingIndex;
         public void OnDrag(PointerEventData eventData)
         {
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                return;
+            }
             this.transform.position = eventData.position;
             //if (placeHolder.transform.parent != placeHolderParent)
             //{
@@ -90,6 +97,8 @@ namespace BGS.ProgrammerTask.UI
 
         public void SetIndexPosition(int silbingIndex)
         {
+            if (silbingIndex < 0)
+                silbingIndex = transform.parent.childCount;
             this.transform.SetParent(parentToReturnTo);
             this.transform.SetSiblingIndex(silbingIndex);
             myCanvasGroup.blocksRaycasts = true;
@@ -98,6 +107,10 @@ namespace BGS.ProgrammerTask.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                return;
+            }
             this.transform.SetParent(parentToReturnTo);
             this.transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
             myCanvasGroup.blocksRaycasts = true;
@@ -111,14 +124,6 @@ namespace BGS.ProgrammerTask.UI
 
         }
 
-        public void ReturnToOriginalDragZone()
-        {
-            if (originalDropZone)
-            {
-                transform.SetParent(originalDropZone.myTransform);
-                transform.SetAsLastSibling();
-                originalDropZone.AddDraggable(this);
-            }
-        }
+       
     }
 }

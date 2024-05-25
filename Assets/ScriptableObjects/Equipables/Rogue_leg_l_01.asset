@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Rogue_leg_l_01
   _spr: {fileID: 21300000, guid: 40e550cd3b539f14eb98d42b6769b592, type: 3}
-  _value: 1
+  _value: 10
   _equipablePart: 9

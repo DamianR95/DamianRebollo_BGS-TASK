@@ -30,8 +30,7 @@ namespace BGS.ProgrammerTask.UI
                 myDraggables.Add(d);
                 d.CurrentDropZone = this;
                 d.parentToReturnTo = this.transform;
-                if (prevIndex >= 0)
-                    d.SetIndexPosition(prevIndex);
+                d.SetIndexPosition(prevIndex);
 
                 if (replaceChild)
                 {

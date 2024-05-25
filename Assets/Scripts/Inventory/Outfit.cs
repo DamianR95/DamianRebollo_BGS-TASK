@@ -10,7 +10,7 @@ namespace BGS.ProgrammerTask.Inventory
 
 
 
-        public OutfitSlot[] GetOutfitSlots() { return _outfitSlots; }
+        public OutfitSlot[] GetOutfitSlots { get { return _outfitSlots; } }
         public void EquipOutfit(Equipable item)
         {
 

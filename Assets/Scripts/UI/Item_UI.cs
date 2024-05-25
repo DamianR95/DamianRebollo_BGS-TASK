@@ -11,10 +11,9 @@ namespace BGS.ProgrammerTask.UI
         public virtual void Setup(DropZone originDropZone, Item i)
         {
             _item = i;
-            gameObject.name = _item.GetName() + "_UI";
+            gameObject.name = _item.GetName + "_UI";
             myImage.sprite = i.MySprite;
-            originalDropZone = originDropZone;
-            originalDropZone.AddDraggable(this);
+            originDropZone.AddDraggable(this);
 
         }
     }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Rogue_torso_05
   _spr: {fileID: 21300000, guid: fff248787aa9dc44d819b77a6686c0af, type: 3}
-  _value: 1
+  _value: 10
   _equipablePart: 1

@@ -15,7 +15,8 @@ namespace BGS.ProgrammerTask.Inventory
         private int _value = 1;
 
 
-        public string GetName () { return _name; }
+        public string GetName { get { return _name; } }
+        public int GetValue { get { return _value; } }
 
         public virtual void Setup(string name, Sprite sprite)
         {
