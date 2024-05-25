@@ -1,33 +1,59 @@
+using BGS.ProgrammerTask.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[Serializable]
-public class OutfitSlot
+namespace BGS.ProgrammerTask.Inventory
 {
-    [SerializeField]
-    private SpriteRenderer _sprRenderer;
-
-    private Equipable _equippedItem;
-
-
-    //private void Awake()
-    //{
-    //    if (_sprRenderer == null)
-    //        _sprRenderer = GetComponent<SpriteRenderer>(); 
-    //}
-
-    public Equipable EquipItem(Equipable newItem) {
-        var oldItem = _equippedItem;
-        _equippedItem = newItem;
-        RefreshAppearance();
-        return oldItem;
-    }
-
-    void RefreshAppearance()
+    [Serializable]
+    public class OutfitSlot
     {
-        _sprRenderer.sprite = _equippedItem.MySprite;
-    }
+        [SerializeField]
+        private SpriteRenderer _sprRenderer;
 
+
+
+        private Equipable _equippedItem;
+
+
+        public void EquipItem(Equipable newItem)
+        {
+            _equippedItem = newItem;
+            RefreshAppearance();
+
+        }
+        public void UnequipItem()
+        {
+            _equippedItem = null;
+            RefreshAppearance();
+        }
+
+        public void EquipItem(Draggable d)
+        {
+            if (d is Equipable_UI)
+            {
+                EquipItem(((Equipable_UI)d).GetEquipable);
+            }
+
+        }
+
+        public void UnequipItem(Draggable d)
+        {
+            UnequipItem();
+        }
+
+        void RefreshAppearance()
+        {
+            if (_equippedItem != null)
+            {
+
+                _sprRenderer.sprite = _equippedItem.MySprite;
+            }
+            else
+            {
+                _sprRenderer.sprite = null;
+            }
+        }
+
+    }
 }

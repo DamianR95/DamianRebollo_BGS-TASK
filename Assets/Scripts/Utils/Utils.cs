@@ -1,25 +1,35 @@
+using BGS.ProgrammerTask.Inventory;
+using BGS.ProgrammerTask.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Utils : MonoBehaviour
+namespace BGS.ProgrammerTask.Utilities
 {
-    static public void CallAction(System.Delegate[] subscriptors, params object[] args)
+    public class Utils : MonoBehaviour
     {
-        if (subscriptors == null)
-            return;
-
-        for (int i = 0; i < subscriptors.Length; i++)
+        static public void CallAction(System.Delegate[] subscriptors, params object[] args)
         {
-            try
+            if (subscriptors == null)
+                return;
+
+            for (int i = 0; i < subscriptors.Length; i++)
             {
-                subscriptors[i].DynamicInvoke(args);
-            }
-            catch (System.Exception e)
-            {
-                UnityEngine.Debug.LogException(e);
+                try
+                {
+                    subscriptors[i].DynamicInvoke(args);
+                }
+                catch (System.Exception e)
+                {
+                    UnityEngine.Debug.LogException(e);
+                }
             }
         }
-    }
 
+        static public Draggable InstanceUI_Element(GameObject prefab, DropZone area, Item item)
+        {
+            var uiDraggeable = Instantiate(prefab, area.myTransform).GetComponent<Item_UI>();
+            uiDraggeable.Setup(area, item);
+            return uiDraggeable;
+        }
+    }
 }
