@@ -50,12 +50,10 @@ namespace BGS.ProgrammerTask.UI
                 if (eventData.position.y < screenCenter.y)
                 {
                     popup.pivot = new Vector2(0, 0);
-                    //currentQuadrant = Quadrant.BottomLeft;
                 }
                 else
                 {
                     popup.pivot = new Vector2(0, 1);
-                    //currentQuadrant = Quadrant.TopLeft;
                 }
             }
             else
@@ -63,12 +61,10 @@ namespace BGS.ProgrammerTask.UI
                 if (eventData.position.y < screenCenter.y)
                 {
                     popup.pivot = new Vector2(1, 0);
-                    //  currentQuadrant = Quadrant.BottomRight;
                 }
                 else
                 {
                     popup.pivot = new Vector2(1, 1);
-                    // currentQuadrant = Quadrant.TopRight;
                 }
             }
 
