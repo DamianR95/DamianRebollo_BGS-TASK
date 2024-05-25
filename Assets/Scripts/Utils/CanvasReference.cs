@@ -5,10 +5,16 @@ namespace BGS.ProgrammerTask.Utilities
 {
     public class CanvasReference : MonoBehaviour
     {
-        public static CanvasReference instance;
+        private static CanvasReference instance;
+
+        public static CanvasReference Instance => instance;
         [SerializeField]
         private Canvas _Canvas;
+        [SerializeField]
+        private RectTransform _CanvasRect;
         public Canvas GetCanvas() { return _Canvas; }
+        public RectTransform GetCanvasRect() { return _CanvasRect; }
+
         private void Awake()
         {
             if (instance == null)

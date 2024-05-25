@@ -44,7 +44,7 @@ namespace BGS.ProgrammerTask.UI
         {
             if (eventData.button == PointerEventData.InputButton.Right)
             {
-                return; 
+                return;
             }
             placeHolder = new GameObject();
             placeHolder.transform.SetParent(this.transform.parent);
@@ -58,7 +58,7 @@ namespace BGS.ProgrammerTask.UI
 
             parentToReturnTo = this.transform.parent;
             placeHolderParent = parentToReturnTo;
-            this.transform.SetParent(CanvasReference.instance.GetCanvas().transform);
+            this.transform.SetParent(CanvasReference.Instance.GetCanvas().transform);
             myCanvasGroup.blocksRaycasts = false;
         }
 
@@ -123,7 +123,14 @@ namespace BGS.ProgrammerTask.UI
                 CurrentDropZone.RemoveDraggable(this);
 
         }
+        public bool CanBeRemovedFromDropZone()
+        {
+            if (CurrentDropZone)
+                return CurrentDropZone.CanRemovedDraggable(this);
+            return true;
+        }
 
-       
+
     }
+
 }

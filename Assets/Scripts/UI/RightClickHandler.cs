@@ -43,16 +43,13 @@ namespace BGS.ProgrammerTask.UI
 
             if (eventSystem != null)
             {
-                // Realiza el raycast utilizando el EventSystem
                 eventSystem.RaycastAll(pointerEventData, m_RaycastResults);
 
-                // Si hay resultados de raycast, toma el primero
                 if (m_RaycastResults.Count > 0)
                 {
                     raycastResult = m_RaycastResults[0];
                 }
 
-                // Limpia los resultados del raycast para la próxima llamada
                 m_RaycastResults.Clear();
             }
 

@@ -12,8 +12,9 @@ namespace BGS.ProgrammerTask.Inventory
         public System.Action<int> OnGoldAdded;
         public System.Action<int> OnGoldRemoved;
 
-        public static GoldCounter instance;
+        private static GoldCounter instance;
 
+        public static GoldCounter Instance => instance;
         private void Awake()
         {
             if(instance != null && instance != this) {

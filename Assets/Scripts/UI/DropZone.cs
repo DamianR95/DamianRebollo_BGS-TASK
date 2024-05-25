@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Linq;
 using BGS.ProgrammerTask.Utilities;
+using System;
 namespace BGS.ProgrammerTask.UI
 {
     public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
@@ -16,14 +17,26 @@ namespace BGS.ProgrammerTask.UI
 
         public List<Draggable> myDraggables = new List<Draggable>();
 
+        public System.Action<Draggable> OnAttemptToRemoveDraggable;
+        public System.Action<Draggable> OnRemoveFailed;
+
+        private List<Func<bool>> conditionsToRemove;
+
         private void Awake()
         {
             myDraggables = GetComponentsInChildren<Draggable>().ToList();
         }
+        public void AddConditionForRemove(Func<bool> condition)
+        {
+            if(conditionsToRemove == null)
+                conditionsToRemove = new List<Func<bool>>();
+
+            conditionsToRemove.Add(condition);
+        }
 
         public void AddDraggable(Draggable d, int prevIndex = -1)
         {
-            if (CanReceiveDraggable(d))
+            if (CanReceiveDraggable(d) && d.CanBeRemovedFromDropZone())
             {
                 var NewDraggablePreviousDropZone = d.CurrentDropZone;
                 d.LeaveDropZone();
@@ -88,6 +101,24 @@ namespace BGS.ProgrammerTask.UI
             }
             return true;
 
+        }
+
+        public bool CanRemovedDraggable(Draggable d) {
+            if (OnAttemptToRemoveDraggable != null)
+                Utils.CallAction(OnAttemptToRemoveDraggable.GetInvocationList(), d);
+            if (conditionsToRemove != null) { 
+            foreach (var condition in conditionsToRemove)
+            {
+                if (!condition())
+                {
+                      if (OnRemoveFailed != null)
+                           Utils.CallAction(OnRemoveFailed.GetInvocationList(), d);
+
+                        return false;
+                }
+                }
+            }
+            return true;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
