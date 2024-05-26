@@ -31,5 +31,28 @@ namespace BGS.ProgrammerTask.Utilities
             uiDraggeable.Setup(area, item);
             return uiDraggeable;
         }
+
+        static public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float endAlpha, float duration)
+        {
+            float startTime = Time.time;
+           
+            canvasGroup.gameObject.SetActive(true);
+            
+            while (Time.time < startTime + duration)
+            {
+                float t = (Time.time - startTime) / duration;
+                canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
+                yield return null;
+            }
+            canvasGroup.alpha = endAlpha;
+            if (endAlpha == 0f)
+            {
+                canvasGroup.gameObject.SetActive(false);
+            }
+            else
+            {
+                canvasGroup.gameObject.SetActive(true);
+            }
+        }
     }
 }

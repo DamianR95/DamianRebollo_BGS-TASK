@@ -2,16 +2,26 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using BGS.ProgrammerTask.Utilities;
 namespace BGS.ProgrammerTask.UI
 {
     public class UIHoverPopup : MonoBehaviour
     {
-        public RectTransform popup;
-        public TextMeshProUGUI nameText;
-        public TextMeshProUGUI descriptionText;
-        public TextMeshProUGUI valueText;
+        [SerializeField]
+        private RectTransform _popup;
+        [SerializeField]
+        private CanvasGroup _popupCanvasGroup;
+        [SerializeField]
+        private TextMeshProUGUI _nameText;
+        [SerializeField]
+        private TextMeshProUGUI _descriptionText;
+        [SerializeField]
+        private TextMeshProUGUI _valueText;
+        [SerializeField]
+        private float fadeDuration = .1f;
 
         private static UIHoverPopup instance;
+       
 
         public static UIHoverPopup Instance => instance;
 
@@ -21,22 +31,32 @@ namespace BGS.ProgrammerTask.UI
         }
         private void Start()
         {
-            ClosePopUp();
+            _popup.gameObject.SetActive(false);
+           // ClosePopUp();
         }
         public void OpenPopUp() { 
-            popup.gameObject.SetActive(true);
+            //_popup.gameObject.SetActive(true);
+            StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 0f, 1f, fadeDuration));
+
         }
         public void ClosePopUp()
         {
-            popup.gameObject.SetActive(false);
+            //_popup.gameObject.SetActive(false);
+            StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 1f, 0f, fadeDuration));
 
         }
 
+        public void UpdatePopupContent(string desc)
+        {
+            _nameText.text = string.Empty;
+            _descriptionText.text = desc;
+            _valueText.text = string.Empty;
+        }
         public void UpdatePopupContent(string name, string desc, string value)
         {
-            nameText.text = name;
-            descriptionText.text = desc;
-            valueText.text = "Value: " + value.ToString();
+            _nameText.text = name;
+            _descriptionText.text = desc;
+            _valueText.text = "Value: " + value.ToString();
         }
 
         public void UpdatePopupPosition(PointerEventData eventData)
@@ -53,26 +73,26 @@ namespace BGS.ProgrammerTask.UI
             {
                 if (eventData.position.y < screenCenter.y)
                 {
-                    popup.pivot = new Vector2(0, 0);
+                    _popup.pivot = new Vector2(0, 0);
                 }
                 else
                 {
-                    popup.pivot = new Vector2(0, 1);
+                    _popup.pivot = new Vector2(0, 1);
                 }
             }
             else
             {
                 if (eventData.position.y < screenCenter.y)
                 {
-                    popup.pivot = new Vector2(1, 0);
+                    _popup.pivot = new Vector2(1, 0);
                 }
                 else
                 {
-                    popup.pivot = new Vector2(1, 1);
+                    _popup.pivot = new Vector2(1, 1);
                 }
             }
 
-        popup.transform.position = transform.TransformPoint(position); 
+        _popup.transform.position = transform.TransformPoint(position); 
         }
     }
 }
