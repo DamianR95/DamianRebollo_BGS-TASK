@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_boot_r_05
   m_EditorClassIdentifier: 
   _name: Rogue_boot_r_05
-  _spr: {fileID: 21300000, guid: debc4edcc117abe4f8600caca642318f, type: 3}
+  _desc: This is a right boot.
+  _spr: {fileID: -285456089, guid: d56869e72e6566042acdd457b7fca47a, type: 3}
   _value: 10
   _equipablePart: 12
+  _equippedSpr: {fileID: 21300000, guid: debc4edcc117abe4f8600caca642318f, type: 3}

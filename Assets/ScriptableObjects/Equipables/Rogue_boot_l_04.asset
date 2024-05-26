@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_boot_l_04
   m_EditorClassIdentifier: 
   _name: Rogue_boot_l_04
-  _spr: {fileID: 21300000, guid: 7b9383d96cedcd9409cc1f3d6d355cf6, type: 3}
+  _desc: This is a left boot.
+  _spr: {fileID: -894258216, guid: c5dc1e4ece458154180bcacaa4d307a7, type: 3}
   _value: 10
   _equipablePart: 10
+  _equippedSpr: {fileID: 21300000, guid: 7b9383d96cedcd9409cc1f3d6d355cf6, type: 3}

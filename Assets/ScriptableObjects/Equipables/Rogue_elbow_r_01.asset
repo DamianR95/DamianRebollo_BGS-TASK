@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_elbow_r_01
   m_EditorClassIdentifier: 
   _name: Rogue_elbow_r_01
-  _spr: {fileID: 21300000, guid: ece48dca5e286fd48b5dc0633b08b15d, type: 3}
+  _desc: This is an elbow armor.
+  _spr: {fileID: 1849927666, guid: 2913fe9461616854c9ac44eda574b756, type: 3}
   _value: 10
   _equipablePart: 7
+  _equippedSpr: {fileID: 21300000, guid: ece48dca5e286fd48b5dc0633b08b15d, type: 3}

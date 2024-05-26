@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_torso_02
   m_EditorClassIdentifier: 
   _name: Rogue_torso_02
-  _spr: {fileID: 21300000, guid: 90458a12b047bb84ba77cb7ea81ba457, type: 3}
+  _desc: This an torso armor.
+  _spr: {fileID: -1336864319, guid: 5aa3354943a00424686b3f0271a7cffd, type: 3}
   _value: 10
   _equipablePart: 1
+  _equippedSpr: {fileID: 21300000, guid: 90458a12b047bb84ba77cb7ea81ba457, type: 3}

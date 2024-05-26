@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_leg_l_01
   m_EditorClassIdentifier: 
   _name: Rogue_leg_l_01
-  _spr: {fileID: 21300000, guid: 40e550cd3b539f14eb98d42b6769b592, type: 3}
+  _desc: This is a leg armor.
+  _spr: {fileID: -920068098, guid: 20c010c4c06a2e847ac1a53c8c1e9d7e, type: 3}
   _value: 10
   _equipablePart: 9
+  _equippedSpr: {fileID: 21300000, guid: 40e550cd3b539f14eb98d42b6769b592, type: 3}
