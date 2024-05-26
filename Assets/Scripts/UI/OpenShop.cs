@@ -7,20 +7,23 @@ using System.Threading.Tasks;
 namespace BGS.ProgrammerTask.UI
 {
     using BGS.ProgrammerTask.NPC;
+    using BGS.ProgrammerTask.Utilities;
     using UnityEngine;
 
     public class OpenShop : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _shopPanel;
+        private CanvasGroup _shopPanel;
         [SerializeField]
-        private GameObject _inventoryPanel;
+        private OpenInventory _inventoryPanel;
         [SerializeField]
         private Interactable _interactable;
+        private float fadeDuration = .1f;
+
         private void Start()
         {
             _interactable.OnInteract += OpenMenu;
-            CloseMenu();
+            _shopPanel.gameObject.SetActive(false); 
         }
 
         private void OnDestroy()
@@ -30,11 +33,11 @@ namespace BGS.ProgrammerTask.UI
         }
         void Update()
         {
-            if ((Input.GetKeyDown(KeyCode.I) ||Input.GetKeyDown(KeyCode.Escape)) && _shopPanel.activeSelf)
+            if ((Input.GetKeyDown(KeyCode.I) ||Input.GetKeyDown(KeyCode.Escape)) && _shopPanel.gameObject.activeSelf)
             {
                 CloseMenu();
             }
-            if(!_interactable.PlayerIsInRange && _shopPanel.activeSelf)
+            if(!_interactable.PlayerIsInRange && _shopPanel.gameObject.activeSelf)
             {
                 CloseMenu();
             }
@@ -42,14 +45,16 @@ namespace BGS.ProgrammerTask.UI
 
         void OpenMenu()
         {
-            _shopPanel.SetActive(true);
-            _inventoryPanel.SetActive(true);
+            StartCoroutine(Utils.FadeCanvasGroup(_shopPanel, 0f, 1f, fadeDuration));
+
+            _inventoryPanel.OpenMenu();
         }
 
         void CloseMenu()
         {
-            _shopPanel.SetActive(false);
-            _inventoryPanel.SetActive(false);
+            StartCoroutine(Utils.FadeCanvasGroup(_shopPanel, 1f, 0f, fadeDuration));
+
+            _inventoryPanel.CloseMenu();
             UIHoverPopup.Instance.ClosePopUp();
 
         }

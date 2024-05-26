@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212000012109687088, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -277,7 +281,7 @@ MonoBehaviour:
   - _sprRenderer: {fileID: 1092619181790153638}
   - _sprRenderer: {fileID: 1092619183330755038}
   - _sprRenderer: {fileID: 1092619181760119908}
-  - _sprRenderer: {fileID: 1092619181634904284}
+  - _sprRenderer: {fileID: 1092619181486704930}
   - _sprRenderer: {fileID: 1092619182719561492}
   - _sprRenderer: {fileID: 1092619181634904284}
   - _sprRenderer: {fileID: 1092619182822929048}
@@ -396,9 +400,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventoryPanel: {fileID: 0}
+  fadeDuration: 0.1
 --- !u!212 &1092619176644953110 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212000010222169336, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+  m_PrefabInstance: {fileID: 997810895295359214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1092619181486704930 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212000013957669324, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
   m_PrefabInstance: {fileID: 997810895295359214}
   m_PrefabAsset: {fileID: 0}
 --- !u!212 &1092619181634904284 stripped

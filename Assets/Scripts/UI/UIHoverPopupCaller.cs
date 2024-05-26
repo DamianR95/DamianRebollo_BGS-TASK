@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,7 +12,8 @@ namespace BGS.ProgrammerTask.UI
     public class UIHoverPopupCaller : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
     {
         [SerializeField]
-       private Item_UI hoverItem;
+        private Item_UI hoverItem;
+       
         public void OnPointerEnter(PointerEventData eventData)
         {
             UIHoverPopup.Instance.OpenPopUp();
