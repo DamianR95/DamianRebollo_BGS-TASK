@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_pelvis_02
   m_EditorClassIdentifier: 
   _name: Rogue_pelvis_02
-  _spr: {fileID: 21300000, guid: 27fe921d9d4bdb24eb91cc1e96a04f02, type: 3}
+  _desc: This will protect you.
+  _spr: {fileID: 224721364, guid: 849e271ea34660147a5dd515d09f3b96, type: 3}
   _value: 10
   _equipablePart: 2
+  _equippedSpr: {fileID: 21300000, guid: 27fe921d9d4bdb24eb91cc1e96a04f02, type: 3}

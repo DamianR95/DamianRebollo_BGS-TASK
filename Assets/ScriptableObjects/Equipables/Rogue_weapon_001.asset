@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_weapon_001
   m_EditorClassIdentifier: 
   _name: Rogue_weapon_001
-  _desc: This is an item.
-  _spr: {fileID: 21300000, guid: a67dcd548e2cfcc40b0c865c7461e835, type: 3}
-  _value: 1
+  _desc: This is a deadly weapon.
+  _spr: {fileID: 1429861738, guid: a67dcd548e2cfcc40b0c865c7461e835, type: 3}
+  _value: 15
   _equipablePart: 13
   _equippedSpr: {fileID: 21300000, guid: f8d916881a19b7a4a99ec74753414a40, type: 3}

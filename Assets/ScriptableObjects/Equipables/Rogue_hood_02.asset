@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_hood_02
   m_EditorClassIdentifier: 
   _name: Rogue_hood_02
-  _spr: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
+  _desc: This is a nice hood.
+  _spr: {fileID: -733294058, guid: 34fb064a1da68e040a1ddf8ffcc5623e, type: 3}
   _value: 10
   _equipablePart: 0
+  _equippedSpr: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}

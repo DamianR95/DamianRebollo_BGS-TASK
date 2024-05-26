@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_shoulder_r_02
   m_EditorClassIdentifier: 
   _name: Rogue_shoulder_r_02
-  _spr: {fileID: 21300000, guid: a471110b5fe3bcc4caff7ad9ff13d244, type: 3}
+  _desc: This is a shoulder armor.
+  _spr: {fileID: 1751378792, guid: 9f7211bbba091b64eb66afc477add321, type: 3}
   _value: 10
   _equipablePart: 6
+  _equippedSpr: {fileID: 21300000, guid: a471110b5fe3bcc4caff7ad9ff13d244, type: 3}

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue_wrist_r_05
   m_EditorClassIdentifier: 
   _name: Rogue_wrist_r_05
-  _spr: {fileID: 21300000, guid: c764210032bc5df46a28cb6e1f3ad991, type: 3}
+  _desc: This is an wrist accessory.
+  _spr: {fileID: -1786818533, guid: 6e5563cba5665ee439dd7dd83076d9c3, type: 3}
   _value: 10
   _equipablePart: 8
+  _equippedSpr: {fileID: 21300000, guid: c764210032bc5df46a28cb6e1f3ad991, type: 3}

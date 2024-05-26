@@ -269,7 +269,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7695effe9d96773499f707e009e24091, type: 2}
   - {fileID: 11400000, guid: 8ca66cb7557d6df46ac1523f20ccc1aa, type: 2}
   - {fileID: 11400000, guid: 9742401564e89cd469f34f012464bdb8, type: 2}
-  sellValueMultiplier: 0.5
 --- !u!114 &5989665603016329680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +330,7 @@ CanvasGroup:
   m_GameObject: {fileID: 1204863399625627737}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 0
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1830895920301508698
