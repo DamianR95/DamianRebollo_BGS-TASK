@@ -10,21 +10,17 @@ namespace BGS.ProgrammerTask.Inventory
     {
         [SerializeField]
         private SpriteRenderer _sprRenderer;
-
-
-
-        private Equipable _equippedItem;
-
+        private Equipable equipedItem;
 
         public void EquipItem(Equipable newItem)
         {
-            _equippedItem = newItem;
+            equipedItem = newItem;
             RefreshAppearance();
 
         }
         public void UnequipItem()
         {
-            _equippedItem = null;
+            equipedItem = null;
             RefreshAppearance();
         }
 
@@ -34,26 +30,23 @@ namespace BGS.ProgrammerTask.Inventory
             {
                 EquipItem(((Equipable_UI)d).GetEquipable);
             }
-
         }
 
         public void UnequipItem(Draggable d)
         {
             UnequipItem();
         }
-
         void RefreshAppearance()
         {
-            if (_equippedItem != null)
+            if (equipedItem != null)
             {
 
-                _sprRenderer.sprite = _equippedItem.GetEquipedSprite;
+                _sprRenderer.sprite = equipedItem.GetEquipedSprite;
             }
             else
             {
                 _sprRenderer.sprite = null;
             }
         }
-
     }
 }

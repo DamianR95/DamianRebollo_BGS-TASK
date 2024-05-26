@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BGS.ProgrammerTask.NPC;
+using BGS.ProgrammerTask.Utilities;
+using UnityEngine;
 
 namespace BGS.ProgrammerTask.UI
 {
-    using BGS.ProgrammerTask.NPC;
-    using BGS.ProgrammerTask.Utilities;
-    using UnityEngine;
-
     public class OpenShop : MonoBehaviour
     {
         [SerializeField]
@@ -18,7 +12,8 @@ namespace BGS.ProgrammerTask.UI
         private OpenInventory _inventoryPanel;
         [SerializeField]
         private Interactable _interactable;
-        private float fadeDuration = .1f;
+        [SerializeField]
+        private float _fadeDuration = .1f;
 
         private void Start()
         {
@@ -45,14 +40,16 @@ namespace BGS.ProgrammerTask.UI
 
         void OpenMenu()
         {
-            StartCoroutine(Utils.FadeCanvasGroup(_shopPanel, 0f, 1f, fadeDuration));
+            if (_shopPanel.gameObject.activeSelf)
+                return;
+            StartCoroutine(Utils.FadeCanvasGroup(_shopPanel, 0f, 1f, _fadeDuration));
 
             _inventoryPanel.OpenMenu();
         }
 
         void CloseMenu()
         {
-            StartCoroutine(Utils.FadeCanvasGroup(_shopPanel, 1f, 0f, fadeDuration));
+            StartCoroutine(Utils.FadeCanvasGroup(_shopPanel, 1f, 0f, _fadeDuration));
 
             _inventoryPanel.CloseMenu();
             UIHoverPopup.Instance.ClosePopUp();

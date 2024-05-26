@@ -14,14 +14,11 @@ namespace BGS.ProgrammerTask.NPC
         private void Awake()
         {
             _interactable.OnInteract += GetGold;
-
         }
         private void OnDisable()
         {
             _interactable.OnInteract -= GetGold;
-
         }
-
         private void GetGold()
         {
             GoldCounter.Instance.AddGold(_goldGain);

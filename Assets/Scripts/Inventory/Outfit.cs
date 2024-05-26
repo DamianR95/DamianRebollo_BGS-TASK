@@ -7,19 +7,14 @@ namespace BGS.ProgrammerTask.Inventory
     {
         [SerializeField]
         private OutfitSlot[] _outfitSlots;
-
-
-
         public OutfitSlot[] GetOutfitSlots { get { return _outfitSlots; } }
         public void EquipOutfit(Equipable item)
         {
-
             var Slot = GetOutfitSlot(item.GetEquipablePart);
             if (Slot == null)
                 return;
 
             Slot.EquipItem(item);
-
         }
 
         private OutfitSlot GetOutfitSlot(OutfitParts index)
@@ -51,7 +46,5 @@ namespace BGS.ProgrammerTask.Inventory
             HAND_R = 14,
             COUNT = 15
         }
-
     }
-
 }

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BGS.ProgrammerTask.UI
 {
     public class ShopkeeperFlavorText : MonoBehaviour
     {
-
         [SerializeField]
         private TMPro.TextMeshProUGUI UITextMeshPro;
         [SerializeField]
@@ -36,7 +30,6 @@ namespace BGS.ProgrammerTask.UI
         private void OnDestroy()
         {
             _zone.OnRemoveFailed -= OnRemoveFailed;
-
         }
     }
 }

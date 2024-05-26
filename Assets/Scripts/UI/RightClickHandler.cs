@@ -9,7 +9,7 @@ namespace BGS.ProgrammerTask.UI
         protected DropZone _myZone;
         [SerializeField]
         private DropZone _zoneToTravel;
-
+        private List<RaycastResult> m_RaycastResults = new List<RaycastResult>();
 
         void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
@@ -35,7 +35,6 @@ namespace BGS.ProgrammerTask.UI
                 _zoneToTravel.AddDraggable(d);
             }
         }
-
         private RaycastResult RaycastUI(PointerEventData pointerEventData)
         {
             EventSystem eventSystem = EventSystem.current;
@@ -56,7 +55,5 @@ namespace BGS.ProgrammerTask.UI
             return raycastResult;
         }
 
-
-        private List<RaycastResult> m_RaycastResults = new List<RaycastResult>();
     }
 }

@@ -14,7 +14,7 @@ namespace BGS.ProgrammerTask.UI
         [SerializeField]
         private CanvasGroup _inventoryPanel;
         [SerializeField]
-        private float fadeDuration = .1f;
+        private float _fadeDuration = .1f;
 
         private void Start()
         {
@@ -38,23 +38,25 @@ namespace BGS.ProgrammerTask.UI
             // _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
             if (!_inventoryPanel.gameObject.activeSelf)
             {
-                StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 0f, 1f, fadeDuration));
+                StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 0f, 1f, _fadeDuration));
             }
             else
             {
-                StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 1f, 0f, fadeDuration));
+                StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 1f, 0f, _fadeDuration));
             }
             UIHoverPopup.Instance.ClosePopUp();
         }
 
         public void OpenMenu()
         {
-            StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 0f, 1f, fadeDuration));
+            if (_inventoryPanel.gameObject.activeSelf)
+                return;
+            StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 0f, 1f, _fadeDuration));
         }
         public void CloseMenu()
         {
             // _inventoryPanel.SetActive(false);
-            StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 1f, 0f, fadeDuration));
+            StartCoroutine(Utils.FadeCanvasGroup(_inventoryPanel, 1f, 0f, _fadeDuration));
             UIHoverPopup.Instance.ClosePopUp();
 
         }

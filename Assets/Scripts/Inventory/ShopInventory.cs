@@ -7,8 +7,8 @@ namespace BGS.ProgrammerTask.Inventory
 {
     public class ShopInventory : Inventory
     {
-        [SerializeField]
-        private float sellValueMultiplier = .5f;
+        //[SerializeField]
+        //private float sellValueMultiplier = .5f;
         protected override void Awake()
         {
             base.Awake();
@@ -17,7 +17,6 @@ namespace BGS.ProgrammerTask.Inventory
             GetDropZone.OnReceiveDraggable += OnReceiveDraggable;
             GetDropZone.OnAttemptToRemoveDraggable += OnAttemptToRemoveDraggable;
             GetDropZone.AddConditionForRemove(hasEnoughGold);
-
         }
 
         private void OnAttemptToRemoveDraggable(Draggable draggable)
@@ -26,9 +25,7 @@ namespace BGS.ProgrammerTask.Inventory
                 HoldingItemValue = equipable.GetItem.GetValue;
             }
         }
-
-        Func<bool> condition1 = () => true;
-        int requiredGold = 30;
+        static int HoldingItemValue;
         Func<bool> hasEnoughGold = () => GoldCounter.Instance.GetGold >= HoldingItemValue;
         private void OnReceiveDraggable(Draggable d)
         {
@@ -39,11 +36,7 @@ namespace BGS.ProgrammerTask.Inventory
 
                 GoldCounter._AddGold(buyValue);
             }
-
-
         }
-
-        static int HoldingItemValue; 
          
         private void OnRemoveDraggable(Draggable d)
         {

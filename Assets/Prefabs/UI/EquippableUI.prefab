@@ -96,7 +96,7 @@ MonoBehaviour:
   placeHolderParent: {fileID: 0}
   draggableTag: 
   CurrentDropZone: {fileID: 0}
-  myImage: {fileID: 8846340001773330556}
+  _myImage: {fileID: 8846340001773330556}
 --- !u!114 &4581798031826493742
 MonoBehaviour:
   m_ObjectHideFlags: 0

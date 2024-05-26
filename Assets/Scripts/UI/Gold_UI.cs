@@ -1,6 +1,4 @@
 ﻿using BGS.ProgrammerTask.Inventory;
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace BGS.ProgrammerTask.UI
@@ -9,13 +7,10 @@ namespace BGS.ProgrammerTask.UI
     {
         [SerializeField]
         private TMPro.TextMeshProUGUI UITextMeshPro;
-
-
         void Start()
         {
             GoldCounter.Instance.OnGoldAdded += RefreshGold;
             GoldCounter.Instance.OnGoldRemoved += RefreshGold;
-
         }
 
         private void RefreshGold(int obj)
@@ -27,6 +22,5 @@ namespace BGS.ProgrammerTask.UI
             GoldCounter.Instance.OnGoldAdded -= RefreshGold;
             GoldCounter.Instance.OnGoldRemoved -= RefreshGold;
         }
-     
     }
 }

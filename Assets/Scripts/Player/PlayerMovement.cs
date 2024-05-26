@@ -52,9 +52,7 @@ namespace BGS.ProgrammerTask.Player
 
         void FixedUpdate()
         {
-            // Mover el jugador
             rb.MovePosition(rb.position + movement * _moveSpeed * Time.fixedDeltaTime);
         }
     }
-
 }

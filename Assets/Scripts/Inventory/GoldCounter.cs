@@ -8,7 +8,7 @@ namespace BGS.ProgrammerTask.Inventory
     public class GoldCounter : MonoBehaviour
     {
         [SerializeField]
-        private int Gold;
+        private int _gold;
         public System.Action<int> OnGoldAdded;
         public System.Action<int> OnGoldRemoved;
 
@@ -24,7 +24,7 @@ namespace BGS.ProgrammerTask.Inventory
             instance = this;
         }
 
-        public int GetGold { get { return Gold; } }
+        public int GetGold { get { return _gold; } }
 
         public static void _AddGold(int amount)
         {
@@ -39,14 +39,14 @@ namespace BGS.ProgrammerTask.Inventory
         public void AddGold(int amount)
         {
 
-            Gold += amount;
+            _gold += amount;
             if (OnGoldAdded != null)
                 Utils.CallAction(OnGoldAdded.GetInvocationList(), amount);
         }
 
         public void RemoveGold(int amount)
         {
-            Gold -= amount;
+            _gold -= amount;
             if (OnGoldRemoved != null)
                 Utils.CallAction(OnGoldRemoved.GetInvocationList(), amount);
         }

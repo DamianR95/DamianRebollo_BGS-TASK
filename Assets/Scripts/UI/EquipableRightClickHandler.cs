@@ -1,7 +1,5 @@
 ﻿using BGS.ProgrammerTask.Inventory;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 namespace BGS.ProgrammerTask.UI
 {
     public class EquipableRightClickHandler : RightClickHandler
@@ -25,8 +23,6 @@ namespace BGS.ProgrammerTask.UI
                             part = Outfit.OutfitParts.HAND_L;
                         }
                     }
-
-
                     inventory.GetEquipSlot(part).AddDraggable(d);
                 }
                 else {

@@ -21,8 +21,6 @@ namespace BGS.ProgrammerTask.UI
         private float fadeDuration = .1f;
 
         private static UIHoverPopup instance;
-       
-
         public static UIHoverPopup Instance => instance;
 
         private void Awake()
@@ -32,18 +30,14 @@ namespace BGS.ProgrammerTask.UI
         private void Start()
         {
             _popup.gameObject.SetActive(false);
-           // ClosePopUp();
         }
         public void OpenPopUp() { 
-            //_popup.gameObject.SetActive(true);
             StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 0f, 1f, fadeDuration));
 
         }
         public void ClosePopUp()
         {
-            //_popup.gameObject.SetActive(false);
             StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 1f, 0f, fadeDuration));
-
         }
 
         public void UpdatePopupContent(string desc)
@@ -91,7 +85,6 @@ namespace BGS.ProgrammerTask.UI
                     _popup.pivot = new Vector2(1, 1);
                 }
             }
-
         _popup.transform.position = transform.TransformPoint(position); 
         }
     }

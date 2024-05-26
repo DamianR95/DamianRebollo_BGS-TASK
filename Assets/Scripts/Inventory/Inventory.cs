@@ -8,9 +8,6 @@ namespace BGS.ProgrammerTask.Inventory
     public class Inventory : MonoBehaviour
     {
 
-
-        private List<Item> _items = new List<Item>();
-
         public GameObject Equipable_UIPrefab;
 
         [SerializeField]
@@ -22,15 +19,10 @@ namespace BGS.ProgrammerTask.Inventory
 
         protected virtual void Awake()
         {
-
             for (int i = 0; i < _startingItem.Length; i++)
             {
-
                 _zone.AddDraggable(Utils.InstanceUI_Element(Equipable_UIPrefab, _zone, _startingItem[i]));
             }
         }
-
-
-
     }
 }

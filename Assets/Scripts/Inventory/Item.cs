@@ -16,7 +16,6 @@ namespace BGS.ProgrammerTask.Inventory
         [SerializeField]
         private int _value = 1;
 
-
         public string GetName { get { return _name; } }
         public string GetDescription { get { return _desc; } }
         public Sprite GetSprite { get { return _spr; } }
@@ -27,8 +26,6 @@ namespace BGS.ProgrammerTask.Inventory
             _name = name;
             _spr = sprite;
         }
-
-
         public virtual void Use()
         {
 

@@ -27,17 +27,12 @@ namespace BGS.ProgrammerTask.NPC
         {
             _interactable.OnPlayerRangeChange += OnPlayerRangeChange;
             targetScaleX = _pivotToRotate.localScale.x;
-
         }
 
         private void OnPlayerRangeChange(bool isInRange)
         {
             isPlayerInRange = isInRange;
-
         }
-      
-
-
         void Update()
         {
             if (!isPlayerInRange) 

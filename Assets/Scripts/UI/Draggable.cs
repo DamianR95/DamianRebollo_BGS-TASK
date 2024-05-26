@@ -12,12 +12,12 @@ namespace BGS.ProgrammerTask.UI
         [HideInInspector]
         public Transform placeHolderParent = null;
 
-        private GameObject placeHolder = null;
         public string draggableTag = "";
+        public DropZone CurrentDropZone;
 
+        private GameObject placeHolder = null;
         private LayoutElement mylayoutElement;
         private CanvasGroup myCanvasGroup;
-        public DropZone CurrentDropZone;
 
         public int GetSilbingIndex
         {

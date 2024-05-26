@@ -17,7 +17,7 @@ namespace BGS.ProgrammerTask.NPC
         [SerializeField]
         private CanvasGroup _popupCanvasGroup;
         [SerializeField]
-        private float fadeDuration = 0.5f;
+        private float _fadeDuration = 0.1f;
         private void Awake()
         {
             _interactable.OnPlayerRangeChange += OnPlayerRangeChange;
@@ -39,16 +39,14 @@ namespace BGS.ProgrammerTask.NPC
                 HidePopup();
             }
         }
-
-
         void ShowPopup()
         {
-            StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 0f, 1f, fadeDuration));
+            StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 0f, 1f, _fadeDuration));
         }
 
         void HidePopup()
         {
-            StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 1f, 0f, fadeDuration));
+            StartCoroutine(Utils.FadeCanvasGroup(_popupCanvasGroup, 1f, 0f, _fadeDuration));
         }
     }
 }

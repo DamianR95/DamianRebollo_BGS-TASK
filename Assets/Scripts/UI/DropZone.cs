@@ -38,6 +38,9 @@ namespace BGS.ProgrammerTask.UI
 
         public void AddDraggable(Draggable d, int prevIndex = -1)
         {
+            if (d.CurrentDropZone == this)
+                return;
+
             if (CanReceiveDraggable(d) && d.CanBeRemovedFromDropZone())
             {
                 var NewDraggablePreviousDropZone = d.CurrentDropZone;

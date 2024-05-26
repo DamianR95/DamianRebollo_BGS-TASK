@@ -1,7 +1,4 @@
 using BGS.ProgrammerTask.Inventory;
-
-
-using UnityEngine.UI;
 namespace BGS.ProgrammerTask.UI
 {
     class Equipable_UI : Item_UI

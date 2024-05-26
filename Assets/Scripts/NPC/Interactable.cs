@@ -1,6 +1,5 @@
 ﻿
 using BGS.ProgrammerTask.Utilities;
-using System;
 using UnityEngine;
 
 namespace BGS.ProgrammerTask.NPC
@@ -8,12 +7,12 @@ namespace BGS.ProgrammerTask.NPC
 
     public class Interactable : MonoBehaviour
     {
-        private bool isPlayerInRange = false;
         [SerializeField]
         public KeyCode _interactKey = KeyCode.E;
 
         public System.Action OnInteract;
         public System.Action<bool> OnPlayerRangeChange;
+        private bool isPlayerInRange = false;
 
         public bool PlayerIsInRange => isPlayerInRange;
         void Update()
