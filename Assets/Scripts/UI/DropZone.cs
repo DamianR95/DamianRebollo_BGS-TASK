@@ -156,6 +156,10 @@ namespace BGS.ProgrammerTask.UI
         {
             //Debug.Log(eventData.pointerDrag.name + " dropped on " + gameObject.name);
 
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                return;
+            }
             Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
             AddDraggable(d);
         }
