@@ -38,8 +38,9 @@ namespace BGS.ProgrammerTask.UI
 
         public void AddDraggable(Draggable d, int prevIndex = -1)
         {
-            if (d.CurrentDropZone != null && d.CurrentDropZone == this)
+            if (d.CurrentDropZone != null && d.CurrentDropZone == this) { 
                 return;
+            }
 
             if (CanReceiveDraggable(d) && d.CanBeRemovedFromDropZone())
             {
@@ -155,7 +156,6 @@ namespace BGS.ProgrammerTask.UI
         public void OnDrop(PointerEventData eventData)
         {
             //Debug.Log(eventData.pointerDrag.name + " dropped on " + gameObject.name);
-
             if (eventData.button == PointerEventData.InputButton.Right)
             {
                 return;
